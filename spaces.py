@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 import cv2 as cv
+import numpy as np
 img=cv.imread("G:\learn opencv/DIP.jpg") #by default opencv will read image in BGR format 
 cv.imshow("original image", img)
 #BGR to gray
@@ -20,7 +21,14 @@ plt.imshow(img) #plt reads pictures by RGB and cause img is provided by cv2 and 
 plt.show()
 #split colors
 b,g,r=cv.split(img)
-cv.imshow("blue chanel",b) #show intesity of blue in original image, so it's gray 
-cv.imshow("green chanel",g)
-cv.imshow("red chanel",r)
+cv.imshow("blue channel",b) #show intesity of blue in original image, so it's gray 
+cv.imshow("green channel",g)
+cv.imshow("red channel",r)
+#merge colors 
+merged_img=cv.merge([b,g,r])
+cv.imshow("merged image",merged_img)
+#blue image 
+blank=np.zeros(img.shape[:2],dtype="uint8")
+bluish_img=cv.merge([b,blank,blank])
+cv.imshow("bluish",bluish_img)
 cv.waitKey(0)
