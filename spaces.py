@@ -7,4 +7,7 @@ cv.imshow("gray scale image", gray_img)
 #BGR to HSV
 hsv_img=cv.cvtColor(img, cv.COLOR_BGR2HSV)
 cv.imshow("hsv space",hsv_img)
+#BGR to LAB
+lab_img=cv.cvtColor(img,cv.COLOR_BGR2LAB)
+cv.imshow("LAB space",lab_img)
 cv.waitKey(0)
